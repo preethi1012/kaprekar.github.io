@@ -1,0 +1,90 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="kaprekars.css">
+    <title>Kaprekar's Constant</title>
+   <style>
+    #content{
+      
+      padding-left: 350px;
+      color:white;
+      font-size:45px
+
+    }
+    #content1{
+      padding-left: 500px;
+    }
+    button{
+      font-size: 30px;
+    }
+    #demo{
+      font-size: 30px;
+    }
+    #content2{
+      padding-left: 500px;
+      font-size: 40px;
+      color:white;
+    }
+    #content3{
+      padding-left: 500px;
+      font-size: 40px;
+      color:white;
+    }
+    footer{
+        color:white;
+        font-size: 35px;
+    }
+ 
+    
+    </style>
+</head>
+
+<body>
+  <div id="full">
+  <div id= "content">
+    <h1>
+        Kaprekar's Constant
+    </h1>
+  </div> 
+  <div id="content1">
+        <input type="text" id="demo" name="t1" placeholder="enter the value" /><br><br>
+        <button onclick="calculate(demo.value)">Check</button>
+        <button onclick="window.location.reload();" >Reset</button><br>
+    </div>
+    <div id="content2">
+      <script>
+      var count = 0;
+        function calculate(x) {
+            
+            var a = [];
+            a = ("" + x).split("");
+            var c = a.sort(function (a, b) { return a - b });//ascending array
+            var d = a.slice().sort(function (a, b) { return b - a });//des array
+            var ascint = parseInt(c.join(''));
+            var desint = parseInt(d.join(''));
+            var ans = desint - ascint;
+            count++;
+            document.getElementById("content2").innerHTML += +desint + "-" + ascint + "=" + ans + '<br>';
+            if (ans != 6174) {
+                calculate(ans);
+
+            }
+            else {
+                document.getElementById("content3").innerHTML = +count + "times iteration has been taken" + '<br>';
+            }
+        }
+
+    </script>
+</div>
+<div id="content3">
+
+</div>
+</div>
+</body>
+<footer>
+    <p>Kaprekar constant, or 6174, is a constant that arises when we take a 4-digit integer, form the largest and smallest numbers from its digits, and then subtract these two numbers. Continuing with this process of forming and subtracting, we will always arrive at the number 6174.</p>
+</footer>
+
+</html>
